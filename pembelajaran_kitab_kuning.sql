@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jan 2025 pada 09.53
+-- Waktu pembuatan: 13 Jan 2025 pada 10.37
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -30,8 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `bab_kitab` (
   `id_bab_kitab` int(11) NOT NULL,
   `id_kitab` int(11) NOT NULL,
-  `judul_bab_kitab` varchar(255) NOT NULL
+  `judul_bab_kitab` varchar(255) NOT NULL,
+  `urutan_bab` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `bab_kitab`
+--
+
+INSERT INTO `bab_kitab` (`id_bab_kitab`, `id_kitab`, `judul_bab_kitab`, `urutan_bab`) VALUES
+(2, 3, 'Pendahuluan', 1);
 
 -- --------------------------------------------------------
 
@@ -90,7 +98,9 @@ INSERT INTO `log` (`id_log`, `isi_log`, `tgl_log`, `id_user`) VALUES
 (0, 'Kitab kitab pengurusan jenazah  berhasil ditambahkan!', '2025-01-13 08:29:00', 1),
 (0, 'Kitab kitab pengurusan jenazah  berhasil dihapus!', '2025-01-13 08:29:12', 1),
 (0, 'Kitab kitab pengurusan jenazah  berhasil ditambahkan!', '2025-01-13 08:29:23', 1),
-(0, 'Kitab pengurusan jenazah  berhasil diubah!', '2025-01-13 08:39:09', 1);
+(0, 'Kitab pengurusan jenazah  berhasil diubah!', '2025-01-13 08:39:09', 1),
+(0, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-13 09:11:44', 1),
+(0, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-13 09:15:07', 1);
 
 -- --------------------------------------------------------
 
@@ -151,7 +161,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `bab_kitab`
 --
 ALTER TABLE `bab_kitab`
-  MODIFY `id_bab_kitab` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bab_kitab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `isi_kitab`
