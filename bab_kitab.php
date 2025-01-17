@@ -66,7 +66,7 @@
                                                 <td class="align-middle"><?= $dbk['judul_bab_kitab']; ?></td>
                                                 <td class="align-middle"><?= $dbk['urutan_bab']; ?></td>
                                                 <td class="text-center align-middle">
-                                                    <a href="detail_kitab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" class="m-1 btn btn-primary"><i class="fas fa-fw fa-bars"></i> Isi Kitab</a>
+                                                    <a href="isi_bab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" class="m-1 btn btn-primary"><i class="fas fa-fw fa-bars"></i> Isi Bab</a>
                                                     <a href="ubah_bab_kitab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" class="m-1 btn btn-success"><i class="fas fa-fw fa-edit"></i> Ubah Bab</a>
                                                     <a href="hapus_bab_kitab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" data-nama="<?= $dbk['judul_bab_kitab']; ?>" class="m-1 btn btn-danger btn-delete"><i class="fas fa-fw fa-trash"></i> Hapus Bab</a>
                                                 </td>

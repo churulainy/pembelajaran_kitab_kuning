@@ -6,52 +6,52 @@
         exit;
     }
 
-    $id_kitab = $_GET['id_kitab'];
-    $data_kitab = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM kitab WHERE id_kitab = '$id_kitab'"));
-
+    $id_bab_kitab = $_GET['id_bab_kitab'];
+    $data_bab_kitab = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM bab_kitab WHERE id_bab_kitab = '$id_bab_kitab'"));
+    $id_kitab = $data_bab_kitab['id_kitab'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en"> <!--begin::Head-->
 
 <head>
-    <title>Ubah Kitab - <?= $data_kitab['nama_kitab']; ?></title>
+    <title>Ubah Bab Kitab - <?= $data_bab_kitab['judul_bab_kitab']; ?></title>
     <?php include_once 'include/head.php'; ?>
 </head> <!--end::Head--> <!--begin::Body-->
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <?php 
-        if (isset($_POST['btnUbahKitab'])) {
-            $nama_kitab = htmlspecialchars($_POST['nama_kitab']);
-            $pengarang = htmlspecialchars($_POST['pengarang']);
+        if (isset($_POST['btnUbahBabKitab'])) {
+            $judul_bab_kitab = htmlspecialchars($_POST['judul_bab_kitab']);
+            $urutan_bab = htmlspecialchars($_POST['urutan_bab']);
 
-            $update_kitab = mysqli_query($conn, "UPDATE kitab SET nama_kitab = '$nama_kitab', pengarang = '$pengarang' WHERE id_kitab = '$id_kitab'");
+            $update_kitab = mysqli_query($conn, "UPDATE bab_kitab SET judul_bab_kitab = '$judul_bab_kitab', urutan_bab = '$urutan_bab' WHERE id_bab_kitab = '$id_bab_kitab'");
 
             if ($update_kitab) {
-                $log_berhasil = mysqli_query($conn, "INSERT INTO log VALUES ('', 'Kitab $nama_kitab berhasil diubah!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
+                $log_berhasil = mysqli_query($conn, "INSERT INTO log VALUES ('', 'Bab $judul_bab_kitab berhasil diubah!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
 
                 echo "
                     <script>
                         Swal.fire({
                             icon: 'success',
                             title: 'Berhasil!',
-                            text: 'kitab " . $nama_kitab . " berhasil diubah!'
+                            text: 'Bab " . $judul_bab_kitab . " berhasil diubah!'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = 'kitab.php';
+                                window.location.href = 'bab_kitab.php?id_kitab=" . $id_kitab . "';
                             }
                         });
                     </script>
                 ";
                 exit;
             } else {
-                $log_gagal = mysqli_query($conn, "INSERT INTO log VALUES ('', 'Kitab $nama_kitab gagal diubah!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
+                $log_gagal = mysqli_query($conn, "INSERT INTO log VALUES ('', 'Kitab $judul_bab_kitab gagal diubah!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
 
                 echo "
                     <script>
                         Swal.fire({
                             icon: 'error',
                             title: 'Gagal!',
-                            text: 'kitab " . $nama_kitab . " gagal diubah!'
+                            text: 'kitab " . $judul_bab_kitab . " gagal diubah!'
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 window.history.back();
@@ -72,7 +72,7 @@
                 <div class="container-fluid"> <!--begin::Row-->
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">Ubah Kitab - <?= $data_kitab['nama_kitab']; ?></h3>
+                            <h3 class="mb-0">Ubah Kitab - <?= $data_bab_kitab['judul_bab_kitab']; ?></h3>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-end">
@@ -93,16 +93,16 @@
                                 <form method="post" enctype="multipart/form-data"> 
                                     <div class="card-body">
                                         <div class="mb-3"> 
-                                            <label for="nama_kitab" class="form-label">Nama Kitab</label>
-                                            <input type="text" class="form-control" id="nama_kitab" name="nama_kitab" value="<?= $data_kitab['nama_kitab']; ?>" required>
+                                            <label for="judul_bab_kitab" class="form-label">Nama Kitab</label>
+                                            <input type="text" class="form-control" id="judul_bab_kitab" name="judul_bab_kitab" value="<?= $data_bab_kitab['judul_bab_kitab']; ?>" required>
                                         </div>
                                         <div class="mb-3"> 
-                                            <label for="pengarang" class="form-label">pengarang</label>
-                                            <input type="text" class="form-control" id="pengarang" name="pengarang" value="<?= $data_kitab['pengarang']; ?>" required>
+                                            <label for="urutan_bab" class="form-label">Urutan Bab</label>
+                                            <input type="number" class="form-control" id="urutan_bab" name="urutan_bab" value="<?= $data_bab_kitab['urutan_bab']; ?>" required>
                                         </div>
                                     </div> 
                                     <div class="card-footer pt-3">
-                                        <button type="submit" name="btnUbahKitab" class="btn btn-primary">Submit</button>
+                                        <button type="submit" name="btnUbahBabKitab" class="btn btn-primary">Submit</button>
                                     </div> 
                                 </form> <!--end::Form-->
                             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jan 2025 pada 17.00
+-- Waktu pembuatan: 17 Jan 2025 pada 17.15
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -39,17 +39,17 @@ CREATE TABLE `bab_kitab` (
 --
 
 INSERT INTO `bab_kitab` (`id_bab_kitab`, `id_kitab`, `judul_bab_kitab`, `urutan_bab`) VALUES
-(2, 3, 'Pendahuluan', 1);
+(5, 5, 'Pendahuluan', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `isi_kitab`
+-- Struktur dari tabel `isi_bab`
 --
 
-CREATE TABLE `isi_kitab` (
-  `id_isi_kitab` int(11) NOT NULL,
-  `id_bab` int(11) NOT NULL,
+CREATE TABLE `isi_bab` (
+  `id_isi_bab` int(11) NOT NULL,
+  `id_bab_kitab` int(11) NOT NULL,
   `isi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -72,7 +72,7 @@ CREATE TABLE `kitab` (
 --
 
 INSERT INTO `kitab` (`id_kitab`, `nama_kitab`, `pengarang`, `jumlah_dibaca`, `dibuat_pada`) VALUES
-(3, 'pengurusan jenazah ', 'alm. KH. Abdurrahman Nawi', 0, '2025-01-13 15:29:23');
+(5, 'pengurusan jenazah', 'alm. KH. Abdurrahman Nawi', 0, '2025-01-17 23:01:52');
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,26 @@ INSERT INTO `log` (`id_log`, `isi_log`, `tgl_log`, `id_user`) VALUES
 (9, 'User andrifirmansaputra1@gmail.com berhasil diubah!', '2025-01-17 15:58:35', 1),
 (10, 'User andrifirmansaputra1@gmail.com berhasil dihapus!', '2025-01-17 15:58:37', 1),
 (11, 'User andrifirmansaputra1@gmail.com gagal ditambahkan!', '2025-01-17 15:59:24', 1),
-(12, 'User andrifirmansaputra1@gmail.com berhasil ditambahkan!', '2025-01-17 16:00:25', 1);
+(12, 'User andrifirmansaputra1@gmail.com berhasil ditambahkan!', '2025-01-17 16:00:25', 1),
+(13, 'Kitab pengurusan jenazah  berhasil dihapus!', '2025-01-17 16:01:16', 1),
+(14, 'Kitab pengurusan jenazah berhasil ditambahkan!', '2025-01-17 16:01:44', 1),
+(15, 'Kitab pengurusan jenazah123 berhasil diubah!', '2025-01-17 16:01:47', 1),
+(16, 'Kitab pengurusan jenazah123 berhasil dihapus!', '2025-01-17 16:01:49', 1),
+(17, 'Kitab pengurusan jenazah berhasil ditambahkan!', '2025-01-17 16:01:52', 1),
+(18, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-17 16:02:07', 1),
+(19, 'Kitab Pendahuluan gagal dihapus!', '2025-01-17 16:02:13', 1),
+(20, 'Bab  Pendahuluan berhasil dihapus!', '2025-01-17 16:05:00', 1),
+(21, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-17 16:05:05', 1),
+(22, 'Kitab Pendahuluan123 gagal diubah!', '2025-01-17 16:07:01', 1),
+(23, 'Bab  Pendahuluan berhasil dihapus!', '2025-01-17 16:08:45', 1),
+(24, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-17 16:08:52', 1),
+(25, 'Kitab Pendahuluan123 berhasil diubah!', '2025-01-17 16:08:55', 1),
+(26, 'Kitab Pendahuluan123 berhasil diubah!', '2025-01-17 16:08:57', 1),
+(27, 'Kitab Pendahuluan berhasil diubah!', '2025-01-17 16:09:39', 1),
+(28, 'Bab Pendahuluan1 berhasil diubah!', '2025-01-17 16:10:39', 1),
+(29, 'Bab Pendahuluan12 berhasil diubah!', '2025-01-17 16:11:16', 1),
+(30, 'Bab Pendahuluan12 berhasil diubah!', '2025-01-17 16:11:40', 1),
+(31, 'Bab Pendahuluan berhasil diubah!', '2025-01-17 16:11:44', 1);
 
 -- --------------------------------------------------------
 
@@ -142,11 +161,11 @@ ALTER TABLE `bab_kitab`
   ADD KEY `id_kitab` (`id_kitab`);
 
 --
--- Indeks untuk tabel `isi_kitab`
+-- Indeks untuk tabel `isi_bab`
 --
-ALTER TABLE `isi_kitab`
-  ADD PRIMARY KEY (`id_isi_kitab`),
-  ADD KEY `id_bab` (`id_bab`);
+ALTER TABLE `isi_bab`
+  ADD PRIMARY KEY (`id_isi_bab`),
+  ADD KEY `id_bab` (`id_bab_kitab`);
 
 --
 -- Indeks untuk tabel `kitab`
@@ -174,25 +193,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `bab_kitab`
 --
 ALTER TABLE `bab_kitab`
-  MODIFY `id_bab_kitab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_bab_kitab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `isi_kitab`
+-- AUTO_INCREMENT untuk tabel `isi_bab`
 --
-ALTER TABLE `isi_kitab`
-  MODIFY `id_isi_kitab` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `isi_bab`
+  MODIFY `id_isi_bab` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `kitab`
 --
 ALTER TABLE `kitab`
-  MODIFY `id_kitab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kitab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -211,10 +230,10 @@ ALTER TABLE `bab_kitab`
   ADD CONSTRAINT `bab_kitab_ibfk_1` FOREIGN KEY (`id_kitab`) REFERENCES `kitab` (`id_kitab`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `isi_kitab`
+-- Ketidakleluasaan untuk tabel `isi_bab`
 --
-ALTER TABLE `isi_kitab`
-  ADD CONSTRAINT `isi_kitab_ibfk_1` FOREIGN KEY (`id_bab`) REFERENCES `bab_kitab` (`id_bab_kitab`) ON DELETE CASCADE;
+ALTER TABLE `isi_bab`
+  ADD CONSTRAINT `isi_bab_ibfk_1` FOREIGN KEY (`id_bab_kitab`) REFERENCES `bab_kitab` (`id_bab_kitab`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
