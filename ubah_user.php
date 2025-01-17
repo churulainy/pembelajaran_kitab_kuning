@@ -6,7 +6,7 @@
         exit;
     }
 
-    if ($dataUser['jabatan'] == 'petugas') {
+    if ($dataUser['role'] == 'petugas') {
         header("Location: index.php");
         exit;
     }
@@ -44,7 +44,7 @@
         }
         
         if (isset($_POST['btnUbahUser'])) {
-            $jabatan = htmlspecialchars($_POST['jabatan']);
+            $role = htmlspecialchars($_POST['role']);
             $nama = htmlspecialchars($_POST['nama']);
 
             $foto = $data_user['foto'];
@@ -104,7 +104,7 @@
                 $foto = uniqid() . '_' . time() . '_' . $foto_new;
             }
             
-            $update_user = mysqli_query($conn, "UPDATE user SET jabatan = '$jabatan', nama = '$nama', foto = '$foto' WHERE id_user = '$id_user'");
+            $update_user = mysqli_query($conn, "UPDATE user SET role = '$role', nama = '$nama', foto = '$foto' WHERE id_user = '$id_user'");
 
             if ($update_user) {
                 $log_berhasil = mysqli_query($conn, "INSERT INTO log VALUES ('', 'User $email berhasil diubah!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
@@ -182,9 +182,9 @@
                                             <input type="text" disabled style="cursor: not-allowed;"  class="form-control" id="email" name="email" value="<?= $data_user['email']; ?>">
                                         </div>
                                         <div class="mb-3"> 
-                                            <label for="jabatan" class="form-label">Jabatan</label> 
-                                            <select class="form-select" id="jabatan" name="jabatan">
-                                                <?php if ($data_user['jabatan'] == 'admin'): ?>
+                                            <label for="role" class="form-label">Role</label> 
+                                            <select class="form-select" id="role" name="role">
+                                                <?php if ($data_user['role'] == 'admin'): ?>
                                                     <option value="admin"><?= ucwords('admin'); ?></option>
                                                     <option value="petugas"><?= ucwords('petugas'); ?></option>
                                                 <?php else: ?>

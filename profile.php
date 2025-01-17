@@ -73,9 +73,9 @@
                         <div class="text-center">
                             <img src="assets/img/profiles/<?= $dataUser['foto']; ?>" alt="Profile Picture">
                         </div>
-                        <h3 class="text-center"><?= $dataUser['nama']; ?></h3>
+                        <h3 class="text-center"><?= $dataUser['nama_lengkap']; ?></h3>
                         <p><strong>Email: </strong><?= $dataUser['email']; ?></p>
-                        <p><strong>Jabatan: </strong><?= ucwords($dataUser['jabatan']); ?></p>
+                        <p><strong>Role: </strong><?= ucwords($dataUser['role']); ?></p>
                         <p><strong>Dibuat Pada: </strong><?= date('d-m-Y, H:i:s', strtotime($dataUser['dibuat_pada']));; ?></p>
                         <div class="btn-group" role="group">
                             <a href="ubah_profile.php" class="btn btn-success"><i class="fas fa-fw fa-edit"></i> Ubah Profile</a>

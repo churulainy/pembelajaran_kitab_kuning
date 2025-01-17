@@ -9,7 +9,7 @@
 	    exit;
 	}
 
-	if ($dataUser['jabatan'] == 'petugas') {
+	if ($dataUser['role'] == 'petugas') {
         header("Location: index.php");
         exit;
     }

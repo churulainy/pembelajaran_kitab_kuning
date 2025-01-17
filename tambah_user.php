@@ -6,7 +6,7 @@
         exit;
     }
 
-    if ($dataUser['jabatan'] == 'petugas') {
+    if ($dataUser['role'] == 'petugas') {
         header("Location: index.php");
         exit;
     }
@@ -63,14 +63,14 @@
                 exit;
             }
             
-            $jabatan = htmlspecialchars($_POST['jabatan']);
-            if ($jabatan == '0') {
+            $role = htmlspecialchars($_POST['role']);
+            if ($role == '0') {
                 echo "
                     <script>
                         Swal.fire({
                             icon: 'error',
                             title: 'Gagal!',
-                            text: 'Pilih jabatan user!',
+                            text: 'Pilih role user!',
                             confirmButtonText: 'Kembali'
                         }).then((result) => {
                             if (result.isConfirmed) {
@@ -134,7 +134,7 @@
                 $foto = 'default.jpg';
             }
 
-            $insert_user = mysqli_query($conn, "INSERT INTO user VALUES ('', '$email', '$password_baru_hash', '$jabatan', '$nama', '$foto', CURRENT_TIMESTAMP())");
+            $insert_user = mysqli_query($conn, "INSERT INTO user VALUES ('', '$email', '$password_baru_hash', '$role', '$nama', '$foto', CURRENT_TIMESTAMP())");
 
             if ($insert_user) {
                 $log_berhasil = mysqli_query($conn, "INSERT INTO log VALUES ('', 'User $email berhasil ditambahkan!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
@@ -219,9 +219,9 @@
                                             <input type="password" class="form-control" id="ulangi_password_baru" name="ulangi_password_baru" required>
                                         </div>
                                         <div class="mb-3"> 
-                                            <label for="jabatan" class="form-label">Jabatan</label> 
-                                            <select class="form-select" id="jabatan" name="jabatan">
-                                                <option value="0">--- Pilih Jabatan ---</option>
+                                            <label for="role" class="form-label">Role</label> 
+                                            <select class="form-select" id="role" name="role">
+                                                <option value="0">--- Pilih Role ---</option>
                                                 <option value="admin"><?= ucwords('admin'); ?></option>
                                                 <option value="petugas"><?= ucwords('petugas'); ?></option>
                                             </select>

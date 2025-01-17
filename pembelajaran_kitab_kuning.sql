@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jan 2025 pada 10.37
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Waktu pembuatan: 17 Jan 2025 pada 07.57
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -87,21 +87,6 @@ CREATE TABLE `log` (
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `log`
---
-
-INSERT INTO `log` (`id_log`, `isi_log`, `tgl_log`, `id_user`) VALUES
-(0, 'User hurul2104@gmail.com berhasil login!', '2025-01-13 07:24:51', 1),
-(0, 'Kitab kitab pengurusan jenazah  berhasil ditambahkan!', '2025-01-13 08:23:45', 1),
-(0, 'Kitab kitab pengurusan jenazah  berhasil dihapus!', '2025-01-13 08:28:20', 1),
-(0, 'Kitab kitab pengurusan jenazah  berhasil ditambahkan!', '2025-01-13 08:29:00', 1),
-(0, 'Kitab kitab pengurusan jenazah  berhasil dihapus!', '2025-01-13 08:29:12', 1),
-(0, 'Kitab kitab pengurusan jenazah  berhasil ditambahkan!', '2025-01-13 08:29:23', 1),
-(0, 'Kitab pengurusan jenazah  berhasil diubah!', '2025-01-13 08:39:09', 1),
-(0, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-13 09:11:44', 1),
-(0, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-13 09:15:07', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -113,15 +98,19 @@ CREATE TABLE `user` (
   `nama_lengkap` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('admin','pengguna') NOT NULL
+  `role` enum('admin','pengguna') NOT NULL,
+  `foto` text NOT NULL,
+  `is_active` int(1) NOT NULL,
+  `dibuat_pada` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama_lengkap`, `email`, `password`, `role`) VALUES
-(1, 'Churul Ain Yahya', 'hurul2104@gmail.com', '$2y$10$P3E5eYX.1Ev9LvofreAICO68miyvOh8lCHQKwPJHLNHbqHDwnKbSG', 'admin');
+INSERT INTO `user` (`id_user`, `nama_lengkap`, `email`, `password`, `role`, `foto`, `is_active`, `dibuat_pada`) VALUES
+(1, 'Churul Ain Yahya', 'hurul2104@gmail.com', '$2y$10$P3E5eYX.1Ev9LvofreAICO68miyvOh8lCHQKwPJHLNHbqHDwnKbSG', 'admin', '6788ad08db0a6_1737010440_default.jpg', 0, '2025-01-16 13:52:23'),
+(2, 'Andri Firman Saputra', 'andrifirmansaputra1@gmail.com', '$2y$10$bTQCDif9ykRqt74tbLPPqO1jllERRN2/deLi2AxwlKSyTmDkBOwCu', 'pengguna', 'default.jpg', 0, '2025-01-16 15:45:28');
 
 --
 -- Indexes for dumped tables
@@ -146,6 +135,12 @@ ALTER TABLE `isi_kitab`
 --
 ALTER TABLE `kitab`
   ADD PRIMARY KEY (`id_kitab`);
+
+--
+-- Indeks untuk tabel `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id_log`);
 
 --
 -- Indeks untuk tabel `user`
@@ -179,7 +174,7 @@ ALTER TABLE `kitab`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

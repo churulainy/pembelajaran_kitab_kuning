@@ -17,7 +17,7 @@
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <?php 
         if (isset($_POST['btnUbahProfile'])) {
-            $nama = htmlspecialchars($_POST['nama']);
+            $nama_lengkap = htmlspecialchars($_POST['nama_lengkap']);
             $foto = $dataUser['foto'];
         
             $foto_new = $_FILES['foto']['name'];
@@ -77,7 +77,7 @@
             }
 
             $id_user = $dataUser['id_user'];
-            $update_profile = mysqli_query($conn, "UPDATE user SET nama = '$nama', foto = '$foto' WHERE id_user = '$id_user'");
+            $update_profile = mysqli_query($conn, "UPDATE user SET nama_lengkap = '$nama_lengkap', foto = '$foto' WHERE id_user = '$id_user'");
 
             if ($update_profile) {
                 $log_berhasil = mysqli_query($conn, "INSERT INTO log VALUES ('', 'Profile berhasil diperbaharui!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
@@ -155,14 +155,14 @@
                                             <input type="text" disabled style="cursor: not-allowed;"  class="form-control" id="email" name="email" value="<?= $dataUser['email']; ?>" required>
                                         </div>
                                         <div class="mb-3"> 
-                                            <label for="jabatan" class="form-label">Jabatan</label> 
-                                            <select disabled style="cursor: not-allowed;"  class="form-select" id="jabatan" name="jabatan">
-                                                <option value="<?= $dataUser['jabatan']; ?>"><?= ucwords($dataUser['jabatan']); ?></option>
+                                            <label for="role" class="form-label">Role</label> 
+                                            <select disabled style="cursor: not-allowed;"  class="form-select" id="role" name="role">
+                                                <option value="<?= $dataUser['role']; ?>"><?= ucwords($dataUser['role']); ?></option>
                                             </select>
                                         </div>
                                         <div class="mb-3"> 
-                                            <label for="nama" class="form-label">Nama</label> 
-                                            <input type="text" class="form-control" id="nama" name="nama" value="<?= $dataUser['nama']; ?>" required>
+                                            <label for="nama_lengkap" class="form-label">Nama</label> 
+                                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= $dataUser['nama_lengkap']; ?>" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="foto" class="form-label">Foto</label>

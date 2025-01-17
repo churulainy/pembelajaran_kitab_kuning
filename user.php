@@ -6,7 +6,7 @@
         exit;
     }
 
-    if ($dataUser['jabatan'] == 'petugas') {
+    if ($dataUser['role'] == 'petugas') {
         header("Location: index.php");
         exit;
     }
@@ -56,7 +56,7 @@
                                             <th class="text-center align-middle">No.</th>
                                             <th class="text-center align-middle">Foto</th>
                                             <th class="text-center align-middle">Email</th>
-                                            <th class="text-center align-middle">Jabatan</th>
+                                            <th class="text-center align-middle">Role</th>
                                             <th class="text-center align-middle">Nama</th>
                                             <th class="text-center align-middle">Dibuat Pada</th>
                                             <th class="text-center align-middle">Aksi</th>
@@ -69,7 +69,7 @@
                                                 <td class="text-center align-middle"><?= $i++; ?>.</td>
                                                 <td class="text-center align-middle"><img style="width: 7.5rem" src="assets/img/profiles/<?= $du['foto']; ?>" alt="<?= $du['foto']; ?>"></td>
                                                 <td class="align-middle"><?= $du['email']; ?></td>
-                                                <td class="align-middle"><?= ucwords($du['jabatan']); ?></td>
+                                                <td class="align-middle"><?= ucwords($du['role']); ?></td>
                                                 <td class="align-middle"><?= $du['nama']; ?></td>
                                                 <td class="align-middle"><?= date('d-m-Y, H:i:s', strtotime($du['dibuat_pada']));; ?></td>
                                                 <td class="text-center align-middle">

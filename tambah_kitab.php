@@ -25,9 +25,6 @@
 
             if ($insert_kitab) {
                 $log_berhasil = mysqli_query($conn, "INSERT INTO log VALUES ('', 'Kitab $nama_kitab berhasil ditambahkan!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
-
-               
-
                 echo "
                     <script>
                         Swal.fire({
