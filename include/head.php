@@ -14,6 +14,9 @@
 <!-- Datatable -->
 <link rel="stylesheet" href="assets/vendor/datatables/css/dataTables.bootstrap5.css">
 
+<!-- Summernote -->
+<link rel="stylesheet" href="assets/vendor/summernote/summernote-bs5.min.css">
+
 <link rel="icon" href="assets/img/properties/logo.png">
 <link rel="stylesheet" href="css/overlayscrollbars.min.css">
 <link rel="stylesheet" href="css/adminlte.css">

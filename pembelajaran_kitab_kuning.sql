@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jan 2025 pada 17.15
+-- Waktu pembuatan: 17 Jan 2025 pada 17.54
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -31,27 +31,16 @@ CREATE TABLE `bab_kitab` (
   `id_bab_kitab` int(11) NOT NULL,
   `id_kitab` int(11) NOT NULL,
   `judul_bab_kitab` varchar(255) NOT NULL,
-  `urutan_bab` int(11) NOT NULL
+  `urutan_bab` int(11) NOT NULL,
+  `isi_bab` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `bab_kitab`
 --
 
-INSERT INTO `bab_kitab` (`id_bab_kitab`, `id_kitab`, `judul_bab_kitab`, `urutan_bab`) VALUES
-(5, 5, 'Pendahuluan', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `isi_bab`
---
-
-CREATE TABLE `isi_bab` (
-  `id_isi_bab` int(11) NOT NULL,
-  `id_bab_kitab` int(11) NOT NULL,
-  `isi` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `bab_kitab` (`id_bab_kitab`, `id_kitab`, `judul_bab_kitab`, `urutan_bab`, `isi_bab`) VALUES
+(3, 5, 'Pendahuluan', 1, '<h3><span style=\"font-size: 14px;\">Pendahuluan</span></h3><h3><span style=\"font-size: 14px;\">\r\n</span><p><span style=\"font-size: 14px;\">Pengurusan jenazah adalah salah satu kewajiban fardhu kifayah bagi umat Islam. Artinya, kewajiban ini harus dilakukan oleh sebagian umat Muslim, dan jika tidak ada yang melakukannya, maka seluruh umat berdosa. Proses pengurusan jenazah merupakan bentuk penghormatan terakhir kepada seorang Muslim yang telah meninggal dunia, sesuai dengan ajaran syariat Islam.</span></p><span style=\"font-size: 14px;\">\r\n</span><p><span style=\"font-size: 14px;\">Pengurusan jenazah mencakup beberapa tahapan penting yang dimulai dari memandikan, mengkafani, menshalatkan, hingga menguburkan jenazah. Setiap tahap memiliki tata cara dan ketentuan tertentu yang harus dilakukan dengan penuh keikhlasan, kehati-hatian, dan penghormatan.</span></p><span style=\"font-size: 14px;\">\r\n</span><p><span style=\"font-size: 14px;\">Proses ini juga mengajarkan pentingnya solidaritas, kasih sayang, serta tanggung jawab sosial dalam komunitas Muslim. Selain itu, pengurusan jenazah menjadi pengingat bagi umat Islam akan kefanaan hidup di dunia dan pentingnya mempersiapkan amal untuk kehidupan akhirat.</span></p><p><br></p></h3><h3><span style=\"font-size: 14px;\">Tahap-Tahap Pengurusan Jenazah dalam Islam</span></h3><p><span style=\"font-size: 14px;\">Pengurusan jenazah dalam Islam dilakukan secara berurutan dengan mengikuti syariat yang telah diajarkan. Berikut adalah tahapan-tahapannya:</span></p><h4><span style=\"font-size: 14px;\">1. </span><strong><span style=\"font-size: 14px;\">Memandikan Jenazah</span></strong></h4><ul><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Hukum</span></strong><span style=\"font-size: 14px;\">: Fardhu kifayah.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Tata Cara</span></strong><span style=\"font-size: 14px;\">:\r\n</span><ol><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Letakkan jenazah di tempat yang tertutup dan terjaga kehormatannya.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Lepaskan pakaian jenazah, tetapi tetap tutupi auratnya.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Bersihkan tubuh jenazah dari najis, termasuk di bagian kemaluan dengan menggunakan kain atau sarung tangan.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Wudukan jenazah seperti tata cara wudu orang hidup.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Cuci seluruh tubuh jenazah, dimulai dari sisi kanan lalu kiri, sebanyak 1–3 kali atau lebih jika diperlukan.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Gunakan air yang bersih dan suci, serta sabun atau daun bidara jika tersedia.</span></li><span style=\"font-size: 14px;\">\r\n</span></ol><span style=\"font-size: 14px;\">\r\n</span></li><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Catatan</span></strong><span style=\"font-size: 14px;\">:\r\n</span><ul><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Jenazah laki-laki dimandikan oleh laki-laki, dan jenazah perempuan oleh perempuan kecuali oleh suami/istri atau mahram.</span></li><span style=\"font-size: 14px;\">\r\n</span></ul><span style=\"font-size: 14px;\">\r\n</span></li><span style=\"font-size: 14px;\">\r\n</span></ul><h4><span style=\"font-size: 14px;\">2. </span><strong><span style=\"font-size: 14px;\">Mengkafani Jenazah</span></strong></h4><ul><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Hukum</span></strong><span style=\"font-size: 14px;\">: Fardhu kifayah.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Tata Cara</span></strong><span style=\"font-size: 14px;\">:\r\n</span><ol><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Siapkan kain kafan, biasanya tiga lapis untuk laki-laki dan lima lapis untuk perempuan.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Taburkan wewangian seperti kapur barus atau minyak wangi pada kain kafan.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Letakkan jenazah di atas kain kafan, lalu bungkus jenazah dengan rapi mulai dari kepala hingga kaki.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Ikat bagian ujung-ujung kain kafan untuk memastikan jenazah tertutup rapat.</span></li><span style=\"font-size: 14px;\">\r\n</span></ol><span style=\"font-size: 14px;\">\r\n</span></li><span style=\"font-size: 14px;\">\r\n</span></ul><h4><span style=\"font-size: 14px;\">3. </span><strong><span style=\"font-size: 14px;\">Menshalatkan Jenazah</span></strong></h4><ul><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Hukum</span></strong><span style=\"font-size: 14px;\">: Fardhu kifayah.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Tata Cara</span></strong><span style=\"font-size: 14px;\">:\r\n</span><ol><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Letakkan jenazah di depan imam dengan posisi kepala di sebelah kiri imam.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Lakukan shalat jenazah dengan empat takbir tanpa ruku dan sujud:\r\n</span><ul><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Takbir Pertama</span></strong><span style=\"font-size: 14px;\">: Membaca niat dan Al-Fatihah.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Takbir Kedua</span></strong><span style=\"font-size: 14px;\">: Membaca shalawat kepada Nabi Muhammad SAW.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Takbir Ketiga</span></strong><span style=\"font-size: 14px;\">: Membaca doa untuk jenazah.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Takbir Keempat</span></strong><span style=\"font-size: 14px;\">: Membaca doa untuk umat Muslim dan mendoakan jenazah.</span></li><span style=\"font-size: 14px;\">\r\n</span></ul><span style=\"font-size: 14px;\">\r\n</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Akhiri dengan salam.</span></li><span style=\"font-size: 14px;\">\r\n</span></ol><span style=\"font-size: 14px;\">\r\n</span></li><span style=\"font-size: 14px;\">\r\n</span></ul><h4><span style=\"font-size: 14px;\">4. </span><strong><span style=\"font-size: 14px;\">Menguburkan Jenazah</span></strong></h4><ul><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Hukum</span></strong><span style=\"font-size: 14px;\">: Fardhu kifayah.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><strong><span style=\"font-size: 14px;\">Tata Cara</span></strong><span style=\"font-size: 14px;\">:\r\n</span><ol><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Gali kubur dengan kedalaman yang cukup, biasanya sesuai syariat untuk mencegah bau dan menjaga kehormatan jenazah.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Letakkan jenazah di liang lahad dengan posisi miring ke kanan dan wajah menghadap kiblat.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Tutup liang lahad dengan papan atau material lainnya sebelum ditimbun tanah.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Timbun kubur hingga membentuk gundukan setinggi satu jengkal.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Bacakan doa untuk jenazah setelah penguburan selesai.</span></li><span style=\"font-size: 14px;\">\r\n</span></ol><span style=\"font-size: 14px;\">\r\n</span></li><span style=\"font-size: 14px;\">\r\n</span></ul><h4><span style=\"font-size: 14px;\">5. </span><strong><span style=\"font-size: 14px;\">Berdoa dan Bersedekah untuk Jenazah</span></strong></h4><ul><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Setelah penguburan, disunnahkan untuk mendoakan jenazah agar diampuni dosa-dosanya dan diterima amal ibadahnya.</span></li><span style=\"font-size: 14px;\">\r\n</span><li><span style=\"font-size: 14px;\">Keluarga jenazah dianjurkan untuk bersedekah dan terus memohonkan doa bagi almarhum.</span></li><span style=\"font-size: 14px;\">\r\n</span></ul><p><span style=\"font-size: 14px;\">\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</span></p><p><span style=\"font-size: 14px;\">Tahapan-tahapan ini mencerminkan keagungan ajaran Islam yang menghormati manusia bahkan setelah kematiannya.</span></p>');
 
 -- --------------------------------------------------------
 
@@ -122,7 +111,20 @@ INSERT INTO `log` (`id_log`, `isi_log`, `tgl_log`, `id_user`) VALUES
 (28, 'Bab Pendahuluan1 berhasil diubah!', '2025-01-17 16:10:39', 1),
 (29, 'Bab Pendahuluan12 berhasil diubah!', '2025-01-17 16:11:16', 1),
 (30, 'Bab Pendahuluan12 berhasil diubah!', '2025-01-17 16:11:40', 1),
-(31, 'Bab Pendahuluan berhasil diubah!', '2025-01-17 16:11:44', 1);
+(31, 'Bab Pendahuluan berhasil diubah!', '2025-01-17 16:11:44', 1),
+(32, 'Bab  Pendahuluan berhasil dihapus!', '2025-01-17 16:26:34', 1),
+(33, 'Kitab Pendahuluan gagal ditambahkan!', '2025-01-17 16:30:25', 1),
+(34, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-17 16:30:40', 1),
+(35, 'Kitab Latar belakang berhasil ditambahkan!', '2025-01-17 16:30:49', 1),
+(36, 'Kitab tes berhasil ditambahkan!', '2025-01-17 16:31:27', 1),
+(37, 'Kitab asd berhasil ditambahkan!', '2025-01-17 16:31:31', 1),
+(38, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-17 16:33:41', 1),
+(39, 'Bab  Pendahuluan berhasil dihapus!', '2025-01-17 16:33:43', 1),
+(40, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-17 16:42:36', 1),
+(41, 'Bab  Pendahuluan berhasil dihapus!', '2025-01-17 16:43:07', 1),
+(42, 'Kitab Pendahuluan berhasil ditambahkan!', '2025-01-17 16:44:51', 1),
+(43, 'Bab Pendahuluan berhasil diubah!', '2025-01-17 16:53:11', 1),
+(44, 'Bab Pendahuluan berhasil diubah!', '2025-01-17 16:54:05', 1);
 
 -- --------------------------------------------------------
 
@@ -161,13 +163,6 @@ ALTER TABLE `bab_kitab`
   ADD KEY `id_kitab` (`id_kitab`);
 
 --
--- Indeks untuk tabel `isi_bab`
---
-ALTER TABLE `isi_bab`
-  ADD PRIMARY KEY (`id_isi_bab`),
-  ADD KEY `id_bab` (`id_bab_kitab`);
-
---
 -- Indeks untuk tabel `kitab`
 --
 ALTER TABLE `kitab`
@@ -193,13 +188,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `bab_kitab`
 --
 ALTER TABLE `bab_kitab`
-  MODIFY `id_bab_kitab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `isi_bab`
---
-ALTER TABLE `isi_bab`
-  MODIFY `id_isi_bab` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bab_kitab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `kitab`
@@ -211,7 +200,7 @@ ALTER TABLE `kitab`
 -- AUTO_INCREMENT untuk tabel `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -228,12 +217,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `bab_kitab`
   ADD CONSTRAINT `bab_kitab_ibfk_1` FOREIGN KEY (`id_kitab`) REFERENCES `kitab` (`id_kitab`) ON DELETE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `isi_bab`
---
-ALTER TABLE `isi_bab`
-  ADD CONSTRAINT `isi_bab_ibfk_1` FOREIGN KEY (`id_bab_kitab`) REFERENCES `bab_kitab` (`id_bab_kitab`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

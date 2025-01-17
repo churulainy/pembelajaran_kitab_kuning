@@ -10,6 +10,10 @@
 <!-- chartjs -->
 <script src="assets/vendor/chartjs/chart.js"></script>
 
+<!-- Summernote -->
+<script src="assets/vendor/summernote/summernote-bs5.min.js"></script>
+
+
 <script>
     $(document).ready(function() {
         $('#table_id').DataTable({
