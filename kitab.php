@@ -44,7 +44,9 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive p-2">
-                                <a href="tambah_kitab.php" class="mb-3 btn btn-primary"><i class="fas fa-fw fa-plus"></i> Tambah Kitab</a>
+                                <?php if ($dataUser['role'] == 'admin'): ?>
+                                    <a href="tambah_kitab.php" class="mb-3 btn btn-primary"><i class="fas fa-fw fa-plus"></i> Tambah Kitab</a>
+                                <?php endif ?>
                                 <table class="table table-bordered" id="table_id">
                                     <thead class="table-dark">
                                         <tr>
@@ -67,8 +69,11 @@
                                                 <td class="align-middle"><?= date('d-m-Y, H:i:s', strtotime($dk['dibuat_pada'])); ?></td>
                                                 <td class="text-center align-middle">
                                                     <a href="bab_kitab.php?id_kitab=<?= $dk['id_kitab']; ?>" class="m-1 btn btn-primary"><i class="fas fa-fw fa-bars"></i> Bab Kitab</a>
-                                                    <a href="ubah_kitab.php?id_kitab=<?= $dk['id_kitab']; ?>" class="m-1 btn btn-success"><i class="fas fa-fw fa-edit"></i> Ubah</a>
-                                                    <a href="hapus_kitab.php?id_kitab=<?= $dk['id_kitab']; ?>" data-nama="<?= $dk['nama_kitab']; ?>" class="m-1 btn btn-danger btn-delete"><i class="fas fa-fw fa-trash"></i> Hapus</a>
+                                                    <?php if ($dataUser['role'] == 'admin'): ?>
+                                                        <a href="ubah_kitab.php?id_kitab=<?= $dk['id_kitab']; ?>" class="m-1 btn btn-success"><i class="fas fa-fw fa-edit">
+                                                        </i> Ubah</a>
+                                                        <a href="hapus_kitab.php?id_kitab=<?= $dk['id_kitab']; ?>" data-nama="<?= $dk['nama_kitab']; ?>" class="m-1 btn btn-danger btn-delete"><i class="fas fa-fw fa-trash"></i> Hapus</a>
+                                                    <?php endif ?>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>

@@ -18,11 +18,13 @@
                         <p>Kitab</p>
                     </a> 
                 </li>
-                <li class="nav-item"> 
-                    <a href="user.php" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/pembelajaran_kitab_kuning/user.php') ? 'active' : ''; ?>"> <i class="nav-icon fas fa-fw fa-users"></i>
-                        <p>User</p>
-                    </a> 
-                </li>
+                <?php if ($dataUser['role'] == 'admin'): ?>
+                    <li class="nav-item"> 
+                        <a href="user.php" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/pembelajaran_kitab_kuning/user.php') ? 'active' : ''; ?>"> <i class="nav-icon fas fa-fw fa-users"></i>
+                            <p>User</p>
+                        </a> 
+                    </li>
+                <?php endif ?>
                 <hr class="sidebar-divider">
                 <li class="nav-item"> 
                     <a href="log.php" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/pembelajaran_kitab_kuning/log.php') ? 'active' : ''; ?>"> <i class="nav-icon fas fa-fw fa-history"></i>

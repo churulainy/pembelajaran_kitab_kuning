@@ -44,7 +44,7 @@
                 <div class="container-fluid"> <!-- Info boxes -->
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-3">
-                            <a href="anak.php" class="nav-link">
+                            <a href="kitab.php" class="nav-link">
                                 <div class="info-box"> <span class="info-box-icon text-bg-primary shadow-sm"> <i class="fas fa-fw fa-book"></i> </span>
                                     <div class="info-box-content"> <span class="info-box-text">Jumlah Kitab</span> 
                                         <span class="info-box-number">
@@ -54,15 +54,17 @@
                                 </div>
                             </a>
                         </div> 
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <a href="user.php" class="nav-link">
-                                <div class="info-box"> <span class="info-box-icon text-bg-warning shadow-sm"> <i class="fas fa-fw fa-users text-white"></i> </span>
-                                    <div class="info-box-content"> <span class="info-box-text">Jumlah Pengguna</span>
-                                        <span class="info-box-number"><?= $jml_user; ?></span>
-                                    </div> <!-- /.info-box-content -->
-                                </div> <!-- /.info-box -->
-                            </a>
-                        </div>
+                        <?php if ($dataUser['role'] == 'admin'): ?>
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <a href="user.php" class="nav-link">
+                                    <div class="info-box"> <span class="info-box-icon text-bg-warning shadow-sm"> <i class="fas fa-fw fa-users text-white"></i> </span>
+                                        <div class="info-box-content"> <span class="info-box-text">Jumlah Pengguna</span>
+                                            <span class="info-box-number"><?= $jml_user; ?></span>
+                                        </div> <!-- /.info-box-content -->
+                                    </div> <!-- /.info-box -->
+                                </a>
+                            </div>
+                        <?php endif ?>
                     </div> <!-- /.row --> <!--begin::Row-->
                 </div> <!--end::Container-->
             </div> <!--end::App Content-->

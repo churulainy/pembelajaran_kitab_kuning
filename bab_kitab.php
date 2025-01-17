@@ -54,7 +54,9 @@
                                         <tr>
                                             <th class="text-center align-middle">No.</th>
                                             <th class="text-center align-middle">Judul Bab Kitab</th>
-                                            <th class="text-center align-middle">Urutan Bab</th>
+                                            <?php if ($dataUser['role'] == 'admin'): ?>
+                                                <th class="text-center align-middle">Urutan Bab</th>
+                                            <?php endif ?>
                                             <th class="text-center align-middle">Aksi</th>
                                         </tr>
                                     </thead>
@@ -64,11 +66,15 @@
                                             <tr>
                                                 <td class="text-center align-middle"><?= $i++; ?>.</td>
                                                 <td class="align-middle"><?= $dbk['judul_bab_kitab']; ?></td>
-                                                <td class="align-middle"><?= $dbk['urutan_bab']; ?></td>
+                                                <?php if ($dataUser['role'] == 'admin'): ?>
+                                                    <td class="align-middle"><?= $dbk['urutan_bab']; ?></td>
+                                                <?php endif ?>
                                                 <td class="text-center align-middle">
                                                     <a href="isi_bab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" class="m-1 btn btn-primary"><i class="fas fa-fw fa-bars"></i> Isi Bab</a>
-                                                    <a href="ubah_bab_kitab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" class="m-1 btn btn-success"><i class="fas fa-fw fa-edit"></i> Ubah Bab</a>
-                                                    <a href="hapus_bab_kitab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" data-nama="<?= $dbk['judul_bab_kitab']; ?>" class="m-1 btn btn-danger btn-delete"><i class="fas fa-fw fa-trash"></i> Hapus Bab</a>
+                                                    <?php if ($dataUser['role'] == 'admin'): ?>
+                                                        <a href="ubah_bab_kitab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" class="m-1 btn btn-success"><i class="fas fa-fw fa-edit"></i> Ubah Bab</a>
+                                                        <a href="hapus_bab_kitab.php?id_bab_kitab=<?= $dbk['id_bab_kitab']; ?>" data-nama="<?= $dbk['judul_bab_kitab']; ?>" class="m-1 btn btn-danger btn-delete"><i class="fas fa-fw fa-trash"></i> Hapus Bab</a>
+                                                    <?php endif ?>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>

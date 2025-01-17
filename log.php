@@ -5,8 +5,13 @@
         header("Location: login.php");
         exit;
     }
-
-    $log = mysqli_query($conn, "SELECT * FROM log LEFT JOIN user ON log.id_user = user.id_user ORDER BY tgl_log DESC");
+    
+    if ($dataUser['role'] == 'admin') {
+        $log = mysqli_query($conn, "SELECT * FROM log LEFT JOIN user ON log.id_user = user.id_user ORDER BY tgl_log DESC");
+    } else {
+        $id_user = $dataUser['id_user'];
+        $log = mysqli_query($conn, "SELECT * FROM log LEFT JOIN user ON log.id_user = user.id_user WHERE log.id_user = '$id_user' ORDER BY tgl_log DESC");
+    }
 ?>
 
 <!DOCTYPE html>
