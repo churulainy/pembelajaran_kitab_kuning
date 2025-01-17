@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jan 2025 pada 08.15
+-- Waktu pembuatan: 17 Jan 2025 pada 17.00
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -87,6 +87,24 @@ CREATE TABLE `log` (
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `log`
+--
+
+INSERT INTO `log` (`id_log`, `isi_log`, `tgl_log`, `id_user`) VALUES
+(1, 'User andrifirmansaputra1@gmail.com berhasil login!', '2025-01-17 15:55:20', 2),
+(2, 'Profile berhasil diperbaharui!', '2025-01-17 15:56:01', 2),
+(3, 'Password berhasil diperbaharui!', '2025-01-17 15:56:21', 2),
+(4, 'Password berhasil diperbaharui!', '2025-01-17 15:56:26', 2),
+(5, 'User andrifirmansaputra1@gmail.com berhasil logout!', '2025-01-17 15:56:32', 2),
+(6, 'User hurul2104@gmail.com berhasil login!', '2025-01-17 15:56:49', 1),
+(7, 'User andrifirmansaputra1@gmail.com berhasil diubah!', '2025-01-17 15:58:24', 1),
+(8, 'User andrifirmansaputra1@gmail.com berhasil diubah!', '2025-01-17 15:58:31', 1),
+(9, 'User andrifirmansaputra1@gmail.com berhasil diubah!', '2025-01-17 15:58:35', 1),
+(10, 'User andrifirmansaputra1@gmail.com berhasil dihapus!', '2025-01-17 15:58:37', 1),
+(11, 'User andrifirmansaputra1@gmail.com gagal ditambahkan!', '2025-01-17 15:59:24', 1),
+(12, 'User andrifirmansaputra1@gmail.com berhasil ditambahkan!', '2025-01-17 16:00:25', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -110,7 +128,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama_lengkap`, `email`, `password`, `role`, `foto`, `is_active`, `dibuat_pada`) VALUES
 (1, 'Churul Ain Yahya', 'hurul2104@gmail.com', '$2y$10$P3E5eYX.1Ev9LvofreAICO68miyvOh8lCHQKwPJHLNHbqHDwnKbSG', 'admin', '6788ad08db0a6_1737010440_default.jpg', 0, '2025-01-16 13:52:23'),
-(2, 'Andri Firman Saputra', 'andrifirmansaputra1@gmail.com', '$2y$10$bTQCDif9ykRqt74tbLPPqO1jllERRN2/deLi2AxwlKSyTmDkBOwCu', 'pengguna', 'default.jpg', 0, '2025-01-16 15:45:28');
+(3, 'Andri Firman Saputra', 'andrifirmansaputra1@gmail.com', '$2y$10$lxOLCcDBfSotPfP.XuZd2elqTqk.Ph7OWl29aSlcESYuThxCiYezK', 'pengguna', '678a7e99ae056_1737129625_65483768.jpeg', 1, '2025-01-17 23:00:25');
 
 --
 -- Indexes for dumped tables
@@ -174,13 +192,13 @@ ALTER TABLE `kitab`
 -- AUTO_INCREMENT untuk tabel `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

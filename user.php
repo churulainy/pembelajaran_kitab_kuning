@@ -70,7 +70,7 @@
                                                 <td class="text-center align-middle"><img style="width: 7.5rem" src="assets/img/profiles/<?= $du['foto']; ?>" alt="<?= $du['foto']; ?>"></td>
                                                 <td class="align-middle"><?= $du['email']; ?></td>
                                                 <td class="align-middle"><?= ucwords($du['role']); ?></td>
-                                                <td class="align-middle"><?= $du['nama']; ?></td>
+                                                <td class="align-middle"><?= $du['nama_lengkap']; ?></td>
                                                 <td class="align-middle"><?= date('d-m-Y, H:i:s', strtotime($du['dibuat_pada']));; ?></td>
                                                 <td class="text-center align-middle">
                                                     <?php if ($du['email'] != 'admin'): ?>

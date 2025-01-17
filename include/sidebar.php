@@ -19,7 +19,7 @@
                     </a> 
                 </li>
                 <li class="nav-item"> 
-                    <a href="anak.php" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/pembelajaran_kitab_kuning/anak.php') ? 'active' : ''; ?>"> <i class="nav-icon fas fa-fw fa-users"></i>
+                    <a href="user.php" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/pembelajaran_kitab_kuning/user.php') ? 'active' : ''; ?>"> <i class="nav-icon fas fa-fw fa-users"></i>
                         <p>User</p>
                     </a> 
                 </li>

@@ -6,7 +6,7 @@
         exit;
     }
 
-    if ($dataUser['role'] == 'petugas') {
+    if ($dataUser['role'] == 'pengguna') {
         header("Location: index.php");
         exit;
     }
@@ -45,7 +45,7 @@
         
         if (isset($_POST['btnUbahUser'])) {
             $role = htmlspecialchars($_POST['role']);
-            $nama = htmlspecialchars($_POST['nama']);
+            $nama_lengkap = htmlspecialchars($_POST['nama_lengkap']);
 
             $foto = $data_user['foto'];
             $foto_new = $_FILES['foto']['name'];
@@ -104,7 +104,7 @@
                 $foto = uniqid() . '_' . time() . '_' . $foto_new;
             }
             
-            $update_user = mysqli_query($conn, "UPDATE user SET role = '$role', nama = '$nama', foto = '$foto' WHERE id_user = '$id_user'");
+            $update_user = mysqli_query($conn, "UPDATE user SET role = '$role', nama_lengkap = '$nama_lengkap', foto = '$foto' WHERE id_user = '$id_user'");
 
             if ($update_user) {
                 $log_berhasil = mysqli_query($conn, "INSERT INTO log VALUES ('', 'User $email berhasil diubah!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
@@ -186,16 +186,16 @@
                                             <select class="form-select" id="role" name="role">
                                                 <?php if ($data_user['role'] == 'admin'): ?>
                                                     <option value="admin"><?= ucwords('admin'); ?></option>
-                                                    <option value="petugas"><?= ucwords('petugas'); ?></option>
+                                                    <option value="pengguna"><?= ucwords('pengguna'); ?></option>
                                                 <?php else: ?>
-                                                    <option value="petugas"><?= ucwords('petugas'); ?></option>
+                                                    <option value="pengguna"><?= ucwords('pengguna'); ?></option>
                                                     <option value="admin"><?= ucwords('admin'); ?></option>
                                                 <?php endif ?>
                                             </select>
                                         </div>
                                         <div class="mb-3"> 
-                                            <label for="nama" class="form-label">Nama</label> 
-                                            <input type="text" class="form-control" id="nama" name="nama" value="<?= $data_user['nama']; ?>" required>
+                                            <label for="nama_lengkap" class="form-label">Nama Lengkap</label> 
+                                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= $data_user['nama_lengkap']; ?>" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="foto" class="form-label">Foto</label>

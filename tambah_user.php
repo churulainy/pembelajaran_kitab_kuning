@@ -6,7 +6,7 @@
         exit;
     }
 
-    if ($dataUser['role'] == 'petugas') {
+    if ($dataUser['role'] == 'pengguna') {
         header("Location: index.php");
         exit;
     }
@@ -82,7 +82,7 @@
                 exit;
             }
 
-            $nama = htmlspecialchars($_POST['nama']);
+            $nama_lengkap = htmlspecialchars($_POST['nama_lengkap']);
 
             $foto = $_FILES['foto']['name'];
             if ($foto != '') {
@@ -134,7 +134,7 @@
                 $foto = 'default.jpg';
             }
 
-            $insert_user = mysqli_query($conn, "INSERT INTO user VALUES ('', '$email', '$password_baru_hash', '$role', '$nama', '$foto', CURRENT_TIMESTAMP())");
+            $insert_user = mysqli_query($conn, "INSERT INTO user VALUES ('', '$nama_lengkap', '$email', '$password_baru_hash', '$role', '$foto', '1', CURRENT_TIMESTAMP())");
 
             if ($insert_user) {
                 $log_berhasil = mysqli_query($conn, "INSERT INTO log VALUES ('', 'User $email berhasil ditambahkan!', CURRENT_TIMESTAMP(), " . $dataUser['id_user'] . ")");
@@ -223,12 +223,12 @@
                                             <select class="form-select" id="role" name="role">
                                                 <option value="0">--- Pilih Role ---</option>
                                                 <option value="admin"><?= ucwords('admin'); ?></option>
-                                                <option value="petugas"><?= ucwords('petugas'); ?></option>
+                                                <option value="pengguna"><?= ucwords('pengguna'); ?></option>
                                             </select>
                                         </div>
                                         <div class="mb-3"> 
-                                            <label for="nama" class="form-label">Nama</label> 
-                                            <input type="text" class="form-control" id="nama" name="nama" required>
+                                            <label for="nama_lengkap" class="form-label">Nama Lengkap</label> 
+                                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="foto" class="form-label">Foto</label>
