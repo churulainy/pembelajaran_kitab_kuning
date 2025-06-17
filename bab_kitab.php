@@ -48,7 +48,9 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive p-2">
-                                <a href="tambah_bab_kitab.php?id_kitab=<?= $id_kitab; ?>" class="mb-3 btn btn-primary"><i class="fas fa-fw fa-plus"></i> Tambah Bab Kitab</a>
+                                <?php if ($dataUser['role'] == 'admin'): ?>
+                                    <a href="tambah_bab_kitab.php?id_kitab=<?= $id_kitab; ?>" class="mb-3 btn btn-primary"><i class="fas fa-fw fa-plus"></i> Tambah Bab Kitab</a>
+                                <?php endif ?>
                                 <table class="table table-bordered" id="table_id">
                                     <thead class="table-dark">
                                         <tr>

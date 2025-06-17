@@ -1,6 +1,6 @@
 <?php 
     require_once 'connection.php';
-
+    // echo password_hash("admin", PASSWORD_DEFAULT);
     if (isset($_SESSION['id_user'])) {
         echo "
             <script>
